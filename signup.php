@@ -45,10 +45,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     
+    
     // Validate the form data (you can add more validation if required)
     if (empty($name) || empty($email) || empty($password)) {
         $error = "Please fill in all the fields.";
-    } else {
+    }else {
         // TODO: Perform signup and database operations
         
         // Assuming you have a database table named "users" with columns: id, name, email, password
@@ -87,6 +88,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (mysqli_query($conn, $query)) {
                 // Signup successful
                 // You can add further code or redirection if needed
+                echo "Account successfully created";
+                header("Location:home.html");
                 
                 mysqli_close($conn);
             } else {
