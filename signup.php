@@ -62,18 +62,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if (mysqli_num_rows($result) > 0) {
             // User already exists, redirect to login page
+            echo "User Already exits";
             header("Location: login.html");
             exit();
         } else {
             // User does not exist, proceed with signup
             $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
             if (mysqli_query($conn, $query)) {
-                // Signup successful
+                echo "Signup successful";
                 // You can add further code or redirection if needed
+                
+                // Fetch the newly created user details from the database
+                $query = "SELECT * FROM users WHERE email='$email'";
+                $result = mysqli_query($conn, $query);
+                
+                if (mysqli_num_rows($result) == 1) {
+                    $row = mysqli_fetch_assoc($result);
+                    
+                    // Process the user details as needed
+                    $id = $row["id"];
+                    $name = $row["name"];
+                    // ... and other details
+                }
+                
                 mysqli_close($conn);
-                header("Location: home.html");
-                exit();
-                // mysqli_close($conn);
             } else {
                 $error = "Error: " . mysqli_error($conn);
             }
@@ -82,6 +94,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // mysqli_close($conn);
     }
 }
+
+
 ?>
 
 <!-- Your signup HTML code here -->
