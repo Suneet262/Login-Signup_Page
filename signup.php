@@ -1,4 +1,42 @@
 <?php
+// Database configuration
+$hostname = 'localhost';
+$username = 'root';
+$password = '';
+
+// Create database
+$database = 'user_authentication_02';
+$conn = mysqli_connect($hostname, $username, $password);
+$sql = "CREATE DATABASE IF NOT EXISTS $database";
+if (mysqli_query($conn, $sql)) {
+    echo "Database created successfully.";
+} else {
+    echo "Error creating database: " . mysqli_error($conn);
+}
+mysqli_close($conn);
+
+// Establish connection to the database
+$conn = mysqli_connect($hostname, $username, $password, $database);
+
+// Check if the connection is successful
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Create the users table if it doesn't exist
+$sql = "CREATE TABLE IF NOT EXISTS users (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL
+)";
+if (mysqli_query($conn, $sql)) {
+    echo "Table created successfully.";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+mysqli_close($conn);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $name = $_POST["name"];
@@ -12,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // TODO: Perform signup and database operations
         
         // Assuming you have a database table named "users" with columns: id, name, email, password
-        $conn = mysqli_connect('localhost', 'root', '','user_authentication');
+        $conn = mysqli_connect('localhost', 'root', '','user_authentication_02');
         
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
@@ -32,8 +70,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (mysqli_query($conn, $query)) {
                 // Signup successful
                 // You can add further code or redirection if needed
-                
                 mysqli_close($conn);
+                header("Location: home.html");
+                exit();
+                // mysqli_close($conn);
             } else {
                 $error = "Error: " . mysqli_error($conn);
             }
