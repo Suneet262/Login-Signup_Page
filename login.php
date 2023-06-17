@@ -27,13 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             mysqli_close($conn);
             
-            echo "Login Successful";
+            // echo "Login Successful";
+            $success = "Login successful!";
             header("Location: home.html");
             exit();
         } else {
             // Invalid login credentials
             header("Location: login.html");
-            echo "Invalid Login Credentials.";
+            // echo "Invalid Login Credentials.";
             $error = "Invalid Login Credentials.";
         }
         
