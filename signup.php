@@ -37,6 +37,8 @@ if (mysqli_query($conn, $sql)) {
 }
 mysqli_close($conn);
 
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $name = $_POST["name"];
@@ -51,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Assuming you have a database table named "users" with columns: id, name, email, password
         $conn = mysqli_connect('localhost', 'root', '','user_authentication_02');
+
         
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
@@ -61,29 +64,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_query($conn, $query);
         
         if (mysqli_num_rows($result) > 0) {
-            // User already exists, redirect to login page
-            echo "User Already exits";
+            // User already exists, verify the details
+            $row = mysqli_fetch_assoc($result);
+            
+            if ($row['name'] === $name && $row['password'] === $password) {
+                // User verified, display message
+                echo "User Already Exists. Please proceed to login.";
+                header("Location: login.html");
+                exit();
+            } else {
+                // User exists, but details do not match
+                $error = "User Already Exists with different details.";
+            }
+            
+            // Redirect to login page
+            echo "User Already Exists. Please proceed to login.";
             header("Location: login.html");
             exit();
         } else {
             // User does not exist, proceed with signup
             $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
             if (mysqli_query($conn, $query)) {
-                echo "Signup successful";
+                // Signup successful
                 // You can add further code or redirection if needed
-                
-                // Fetch the newly created user details from the database
-                $query = "SELECT * FROM users WHERE email='$email'";
-                $result = mysqli_query($conn, $query);
-                
-                if (mysqli_num_rows($result) == 1) {
-                    $row = mysqli_fetch_assoc($result);
-                    
-                    // Process the user details as needed
-                    $id = $row["id"];
-                    $name = $row["name"];
-                    // ... and other details
-                }
                 
                 mysqli_close($conn);
             } else {
@@ -94,7 +97,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // mysqli_close($conn);
     }
 }
-
 
 ?>
 

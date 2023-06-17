@@ -1,5 +1,4 @@
 <?php
-session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $email = $_POST["email"];
@@ -9,30 +8,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($email) || empty($password)) {
         $error = "Please fill in all the fields.";
     } else {
-        // TODO: Perform login authentication and database operations
+        // TODO: Perform login and database operations
         
         // Assuming you have a database table named "users" with columns: id, name, email, password
-        $conn = mysqli_connect('localhost', 'root', '','user_authentication');
+        $conn = mysqli_connect('localhost', 'root', '','user_authentication_02');
         
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
         
+        // Check if the user exists and the entered details are correct
         $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
         $result = mysqli_query($conn, $query);
         
         if (mysqli_num_rows($result) == 1) {
-            // Successful login
-            $row = mysqli_fetch_assoc($result);
-            $_SESSION["email"] = $row["email"];
-            $_SESSION["name"] = $row["name"];
+            // User exists and details are correct, login successful
+            // You can add further code or redirection if needed
             
-            // Redirect to the home page upon successful login
+            mysqli_close($conn);
+            
+            echo "Login Successful";
             header("Location: home.html");
             exit();
         } else {
-            // Invalid credentials
-            $error = "Invalid email or password.";
+            // Invalid login credentials
+            header("Location: login.html");
+            echo "Invalid Login Credentials.";
+            $error = "Invalid Login Credentials.";
         }
         
         mysqli_close($conn);
