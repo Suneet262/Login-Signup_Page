@@ -35,7 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Invalid login credentials
             header("Location: login.html");
             // echo "Invalid Login Credentials.";
-            $error = "Invalid Login Credentials.";
+            // $error = "Invalid Login Credentials.";
+            echo "<script>alert('Invalid Login Credentials'); window.location.href='login.html';</script>";
         }
         
         mysqli_close($conn);
