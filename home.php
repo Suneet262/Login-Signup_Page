@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,9 @@
     <header>
         <nav>
             <div class="container">
-                <h1>Welcome,  <?php echo $_SESSION['username']; ?> !</h1>
+                <h1>Welcome,  <?php 
+                session_start();
+                echo $_SESSION['$email'] ;?> !</h1>
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
@@ -21,7 +24,8 @@
 
     <div class="content">
         <h2>Welcome to the Home Page</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo lacus eget sapien varius, id volutpat enim lacinia. Sed consequat tellus et nibh scelerisque tincidunt.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo lacus eget sapien varius, id volutpat enim lacinia.
+             Sed consequat tellus et nibh scelerisque tincidunt.</p>
     </div>
 
     <footer>

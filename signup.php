@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Signup successful
                 // You can add further code or redirection if needed
                 echo "Account successfully created";
-                header("Location:home.html");
+                header("Location:home.php");
                 
                 mysqli_close($conn);
             } else {
