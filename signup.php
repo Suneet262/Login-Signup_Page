@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             
             // Redirect to login page
-            echo "User Already Exists. Please proceed to login.";
+            echo '<script>alert("User Already Exists. Please proceed to login.")</script>';
             header("Location: login.html");
             exit();
         } else {

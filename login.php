@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $email = $_POST["email"];
@@ -9,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Please fill in all the fields.";
     } else {
         // TODO: Perform login and database operations
+        $_SESSION['email']= $email;
         
         // Assuming you have a database table named "users" with columns: id, name, email, password
         $conn = mysqli_connect('localhost', 'root', '','user_authentication_02');
