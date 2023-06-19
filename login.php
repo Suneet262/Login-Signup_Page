@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // TODO: Perform login and database operations
         
         // Assuming you have a database table named "users" with columns: id, name, email, password
-        $conn = mysqli_connect('localhost', 'root', '','user_authentication_02');
+        $conn = mysqli_connect('localhost', 'root', '','user_authentication_03');
         
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
