@@ -49,9 +49,9 @@
             <div class="container">
                 <h1>Welcome!!</h1>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#home.php">New Order</a></li>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Track Order</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
             </div>
