@@ -62,7 +62,7 @@
         <!-- <h2>Welcome to the Home Page</h2> -->
         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo lacus eget sapien varius, id volutpat enim lacinia.
              Sed consequat tellus et nibh scelerisque tincidunt.</p> -->
-    <h1 style="text-align: center;">CLOTHING FORM</h1>
+    <h1 style="text-align: center;">Order Details</h1>
     <form>
         <table cellpadding="4" cellspacing="10" width="90%">
             <tr>
