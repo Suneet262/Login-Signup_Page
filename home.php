@@ -64,7 +64,7 @@
         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo lacus eget sapien varius, id volutpat enim lacinia.
              Sed consequat tellus et nibh scelerisque tincidunt.</p> -->
     <h1 style="text-align: center;">CLOTHING FORM</h1>
-    <form>
+    <form action="submit_order.php" method="POST">
         <table cellpadding="4" cellspacing="10" width="90%">
             <tr>
                 <td>Name *</td>
