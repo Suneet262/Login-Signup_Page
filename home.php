@@ -50,7 +50,7 @@
             <div class="container">
                 <h1>Welcome!! !!</h1>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#home.php">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                     <li><a href="logout.php">Logout</a></li>
@@ -82,18 +82,42 @@
                 <td>Address *</td>
             </tr>
             <tr>
-                <td><textarea></textarea></td>
+                <td><textarea class="fixed-size"></textarea></td>
+            </tr>
+            <tr><td>Product Type *</td></tr>
+            <tr>
+                
+                <td><select>
+                        <option value="1">Shirt</option>
+                        <option value="2">T-Shirt</option>
+                        <option value="3">Pant</option>
+                        <option value="4">Trackpant</option>
+                        <option value="5">Skirt</option>
+                    </select></td>
             </tr>
             <tr><td>Size *</td></tr>
             <tr>
                 
                 <td><select>
-                        <option value="1">Small</option>
-                        <option value="2">Medium</option>
-                        <option value="3">Large</option>
-                        <option value="4">Extra Large</option>
+                        <option value="1">20</option>
+                        <option value="2">22</option>
+                        <option value="3">24</option>
+                        <option value="4">26</option>
+                        <option value="5">28</option>
+                        <option value="6">30</option>
+                        <option value="7">32</option>
+                        <option value="8">34</option>
+                        <option value="9">36</option>
+                        <option value="10">38</option>
+                        <option value="11">40</option>
+                        <option value="12">42</option>
+                        <option value="13">44</option>
+                        <option value="14">46</option>
+                        <option value="15">48</option>
                     </select></td>
-            </tr>
+            </tr>          
+
+
             <tr><td>Colour *</tr></td>
             <tr>
                 <td><select>
