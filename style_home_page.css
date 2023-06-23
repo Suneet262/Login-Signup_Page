@@ -40,6 +40,7 @@ body {
     margin: 20px;
     padding: 20px;
     background-color: #fff;
+
   }
   
   /* Footer Styles */
@@ -58,5 +59,11 @@ body {
   h1, h2, p {
     margin: 0 0 20px;
   }
+  
+
+/*Fixing the textarea field*/
+.fixed-size {
+  resize: none;
+}
   
   
