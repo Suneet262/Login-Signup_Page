@@ -5,6 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $email = $_POST["email"];
     $password = $_POST["password"];
+    //$message= "Login Successful";
     
     // Validate the form data (you can add more validation if required)
     if (empty($email) || empty($password)) {
@@ -38,8 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Invalid login credentials
             header("Location: login.html");
             // echo "Invalid Login Credentials.";
-            // $error = "Invalid Login Credentials.";
-            echo "<script>alert('Invalid Login Credentials'); window.location.href='login.html';</script>";
+            //$error = "Invalid Login Credentials.";
         }
         
         mysqli_close($conn);
