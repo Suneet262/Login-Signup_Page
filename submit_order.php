@@ -3,10 +3,10 @@
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$dbname = "user_authentication_02";
+$dbname = "user_authentication_03";
 
 // Create database
-$database = 'user_authentication_02';
+$database = 'user_authentication_03';
 $conn = mysqli_connect($hostname, $username, $password);
 $sql = "CREATE DATABASE IF NOT EXISTS $database";
 if (mysqli_query($conn, $sql)) {
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $Delivery_Address = $_POST["Delivery_Address"];
     $Product_type = $_POST["Product_type"];
     $Size_value = $_POST["Size"];
-    $Color = $_POST["Color"];
+    $colorValue = $_POST["Color"];
     $Quantity = $_POST["Quantity"];
 
     //Map the selected value to its actual size
@@ -55,8 +55,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     );
     $size = $sizeOptions[$Size_value];
 
+
+    //MAp the selected value of its actaul color
+    $colorOptions = array(
+        "1" => "Red",
+        "2" => "R.blue",
+        "3" => "P Green",
+        "4" => "C Green",
+        "5" => "N Blue",
+        "6" => "Parrot Green",
+        "7" => "Black",
+        "9" => "Gold",
+        "10" => "Lemon",
+        "11" => "Mango Gold",
+        "12" => "White",
+        "13" => "Gray",
+        "14" => "Gray Milange",
+        "15" => "Antra Milange",
+        "16" => "Light Blue",
+        "17" => "Charcol Grey",
+        "18" => "Lavender",
+        "19" => "Wine",
+        "20" => "Maroon"
+    );
+    $color = $colorOptions[$colorValue];
+
     // Insert the form data into appropriate database tables
-    $conn = mysqli_connect('localhost', 'root', '','user_authentication_02'); 
+    $conn = mysqli_connect('localhost', 'root', '','user_authentication_03'); 
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
@@ -84,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     
     // Insert into the Orders table
-    $sql = "INSERT INTO order_items (Order_id, Color,Size, Quantity) VALUES ( '$Order_id','$Color', '$size', '$Quantity')";
+    $sql = "INSERT INTO order_items (Order_id, Color,Size, Quantity) VALUES ( '$Order_id','$color', '$size', '$Quantity')";
     if ($conn->query($sql) === TRUE) {
         $Order_items_id = $conn->insert_id; // Get the ID of the newly inserted order
     } else {

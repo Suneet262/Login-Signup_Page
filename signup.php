@@ -5,7 +5,7 @@ $username = 'root';
 $password = '';
 
 // Create database
-$database = 'user_authentication_02';
+$database = 'user_authentication_03';
 $conn = mysqli_connect($hostname, $username, $password);
 $sql = "CREATE DATABASE IF NOT EXISTS $database";
 if (mysqli_query($conn, $sql)) {
@@ -39,6 +39,7 @@ mysqli_close($conn);
 
 
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $name = $_POST["name"];
@@ -53,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // TODO: Perform signup and database operations
         
         // Assuming you have a database table named "users" with columns: id, name, email, password
-        $conn = mysqli_connect('localhost', 'root', '','user_authentication_02');
+        $conn = mysqli_connect('localhost', 'root', '','user_authentication_03');
 
         
         if (!$conn) {
