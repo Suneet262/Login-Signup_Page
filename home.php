@@ -1,3 +1,6 @@
+//home.php
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,9 +21,9 @@
         margin-right: auto;
         padding: 10px;
     }
-    table{
+     table{ 
 
-    }
+     }
     input{
         width: 100%;
         padding: 8px;
@@ -47,11 +50,11 @@
     <header>
         <nav>
             <div class="container">
-                <h1>Welcome!!</h1>
+                <h1>Welcome!! !!</h1>
                 <ul>
-                    <li><a href="#home.php">New Order</a></li>
-                    <li><a href="#">Search</a></li>
-                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#home.php">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
             </div>
@@ -62,42 +65,42 @@
         <!-- <h2>Welcome to the Home Page</h2> -->
         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo lacus eget sapien varius, id volutpat enim lacinia.
              Sed consequat tellus et nibh scelerisque tincidunt.</p> -->
-    <h1 style="text-align: center;">Order Details</h1>
-    <form>
+    <h1 style="text-align: center;">CLOTHING FORM</h1>
+    <form action="submit_order.php" method="POST">
         <table cellpadding="4" cellspacing="10" width="90%">
             <tr>
-                <td>Party Name *</td>
+                <td>Name *</td>
             </tr>
             <tr>
-                <td><input type="text" required></td>
+                <td><input type="text" required id="Customer_Name" name="Customer_Name" ></td>
             </tr>
             <tr>
                 <td>Email *</td>
             </tr>
             <tr>
-                <td><input type="email" required></td>
+                <td><input type="email" required id="Customer_Email" name="Customer_Email" ></td>
             </tr>
             <tr>
-                <td>Delivery Address *</td>
+                <td>Address *</td>
             </tr>
             <tr>
-                <td><textarea class="fixed-size"></textarea></td>
+                <td><textarea class="fixed-size" id="Delivery_Address" name="Delivery_Address" ></textarea></td>
             </tr>
             <tr><td>Product Type *</td></tr>
             <tr>
                 
-                <td><select>
-                        <option value="1">Shirt</option>
-                        <option value="2">T-Shirt</option>
-                        <option value="3">Pant</option>
-                        <option value="4">Trackpant</option>
-                        <option value="5">Skirt</option>
+                <td><select id="Product_type" name="Product_type">
+                        <option value="Shirt">Shirt</option>
+                        <option value="T-Shirt">T-Shirt</option>
+                        <option value="Pant">Pant</option>
+                        <option value="Trackpant">Trackpant</option>
+                        <option value="Skirt">Skirt</option>
                     </select></td>
             </tr>
             <tr><td>Size *</td></tr>
             <tr>
                 
-                <td><select>
+                <td><select id="Size" name="Size" >
                         <option value="1">20</option>
                         <option value="2">22</option>
                         <option value="3">24</option>
@@ -114,10 +117,12 @@
                         <option value="14">46</option>
                         <option value="15">48</option>
                     </select></td>
-            </tr>
+            </tr>          
+
+
             <tr><td>Colour *</tr></td>
             <tr>
-                <td><select>
+                <td><select id="Color" name="Color" >
                     
                         <option value="1">Red</option>
                         <option value="2">R.blue</option>
@@ -145,7 +150,7 @@
         <tr>
             
            <td>
-             <input type="number" id="quantity" name="Quantity" min="1" required> </td>
+             <input type="number" id="Quantity" name="Quantity" min="1" required> </td>
         </tr>
                 <td><button type="submit">Submit</button></td>
             </tr>
@@ -160,4 +165,3 @@
     </footer>
 </body>
 </html>
-
