@@ -31,9 +31,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $Customer_Email = $_POST["Customer_Email"];
     $Delivery_Address = $_POST["Delivery_Address"];
     $Product_type = $_POST["Product_type"];
-    $Size = $_POST["Size"];
+    $Size_value = $_POST["Size"];
     $Color = $_POST["Color"];
     $Quantity = $_POST["Quantity"];
+
+    //Map the selected value to its actual size
+    $sizeOptions = array(
+        "1" => "20",
+        "2" => "22",
+        "3" => "24",
+        "4" => "26",
+        "5" => "28",
+        "6" => "30",
+        "7" => "32",
+        "8" => "34",
+        "9" => "36",
+        "10" => "38",
+        "11" => "40",
+        "12" => "42",
+        "13" => "44",
+        "14" => "46",
+        "15" => "48"
+    );
+    $size = $sizeOptions[$Size_value];
 
     // Insert the form data into appropriate database tables
     $conn = mysqli_connect('localhost', 'root', '','user_authentication_02'); 
@@ -64,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     
     // Insert into the Orders table
-    $sql = "INSERT INTO order_items (Order_id, Color,Size, Quantity) VALUES ( '$Order_id','$Color', '$Size', '$Quantity')";
+    $sql = "INSERT INTO order_items (Order_id, Color,Size, Quantity) VALUES ( '$Order_id','$Color', '$size', '$Quantity')";
     if ($conn->query($sql) === TRUE) {
         $Order_items_id = $conn->insert_id; // Get the ID of the newly inserted order
     } else {
