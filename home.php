@@ -50,7 +50,7 @@
             <div class="container">
                 <h1>Welcome!! !!</h1>
                 <ul>
-                    <li><a href="#home.php">New Order</a></li>
+                    <li><a href="home.php">New Order</a></li>
                     <li><a href="order_details.html">Search Order</a></li>
                     <li><a href="#">Track Order</a></li>
                     <li><a href="logout.php">Logout</a></li>
