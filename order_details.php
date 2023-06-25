@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (mysqli_num_rows($result) > 0) {
            // Start building the order details table
          // Start building the order details table
-         $table = '<table class="order-table">';
+         $table = '<table class="order-table" border=1px>';
          $table .= '<tr><th>Order ID</th><th>Client Name</th><th>Client Email-Id</th><th>Product Type</th><th>Size</th><th>Color</th><th>Quantity</th><th>Order Date/Time</th><th>Delivery Address</th></tr>';
 
         // Fetch each row of the result set
