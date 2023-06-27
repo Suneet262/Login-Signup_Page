@@ -5,7 +5,7 @@ $username = 'root';
 $password = '';
 
 // Create database
-$database = 'user_authentication';
+$database = 'user_authentication_03';
 $conn = mysqli_connect($hostname, $username, $password);
 $sql = "CREATE DATABASE IF NOT EXISTS $database";
 if (mysqli_query($conn, $sql)) {
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signup'])) {
     // Add your own validation rules here
 
     // Connect to the database
-    $conn = mysqli_connect('localhost', 'root', '','user_authentication');
+    $conn = mysqli_connect('localhost', 'root', '','user_authentication_03');
 
     // Check if the connection is successful
     if (!$conn) {
@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     $password = $_POST["password"];
 
     // Connect to the database
-    $conn = mysqli_connect('localhost', 'root', '','user_authentication');
+    $conn = mysqli_connect('localhost', 'root', '','user_authentication_03');
 
     // Check if the connection is successful
     if (!$conn) {
