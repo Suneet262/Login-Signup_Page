@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // echo "Invalid Login Credentials.";
            echo $error = "Invalid Login Credentials.";
         //    alert("Invalid Login Credentials");
+        
            
         }
         
