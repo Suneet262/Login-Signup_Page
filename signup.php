@@ -71,11 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if ($row['name'] === $name && $row['password'] === $password) {
                 // User verified, display message
-                echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>';
-                echo "User Already Exists. Please proceed to login.";
+                $error = "User Already Exists. Please proceed to login.";
                 header("Location: login.html");
                 exit();
             } else {
@@ -84,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             
             // Redirect to login page
-            echo '<script>alert("User Already Exists. Please proceed to login.")</script>';
+            $success = ("User Already Exists. Please proceed to login.");
             header("Location: login.html");
             exit();
         } else {
@@ -93,13 +89,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (mysqli_query($conn, $query)) {
                 // Signup successful
                 // You can add further code or redirection if needed
-                echo "Account successfully created";
+                $success = "Account successfully created";
                 header("Location:home.php");
                 
                 mysqli_close($conn);
             } else {
                 $error = "Error: " . mysqli_error($conn);
             }
+        }
+
+
+        if (isset($error)) {
+            echo "<p class='error'>$error</p>";
+        }
+    
+        if (isset($success)) {
+            echo "<p class='success'>$success</p>";
         }
         
         // mysqli_close($conn);
