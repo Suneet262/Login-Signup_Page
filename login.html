@@ -64,6 +64,14 @@
 <body>
     <div class="signup-container">
         <div class="signup-box">
+            <h1>Admin Login</h1>
+            <form action="admin_login.php" method="post">
+                <input type="text" name="admin_username" placeholder="Admin Username" required>
+                <input type="password" name="admin_password" placeholder="Admin Password" required>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <div class="signup-box">
             <h1>User Login</h1>
             <form action="user_login.php" method="post">
                 <input type="email" name="email" placeholder="Email" required>
@@ -72,14 +80,6 @@
                 <div class="signup-link">
                     <p>Don't have an account? <a href="signup.html">Signup here</a></p>
                 </div>
-            </form>
-        </div>
-        <div class="signup-box">
-            <h1>Admin Login</h1>
-            <form action="login.php" method="post">
-                <input type="text" name="admin_username" placeholder="Admin Username" required>
-                <input type="password" name="admin_password" placeholder="Admin Password" required>
-                <input type="submit" value="Login">
             </form>
         </div>
     </div>
