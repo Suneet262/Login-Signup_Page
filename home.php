@@ -21,9 +21,9 @@
         margin-right: auto;
         padding: 10px;
     }
-     table{ 
+     /* table{ 
 
-     }
+     } */
     input{
         width: 100%;
         padding: 8px;
@@ -52,9 +52,9 @@
             <div class="container">
                 <h1>Welcome!! !!</h1>
                 <ul>
-                    <li><a href="#home.php">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="home.php">New Order</a></li>
+                    <li><a href="order_details.html">Search Order</a></li>
+                    <li><a href="#">Track Order</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
             </div>
