@@ -46,13 +46,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         
 
-        if (isset($error)) {
-            echo "<div class='message error'>$error</div>";
-        }
+        // if (isset($error)) {
+        //     echo "<div class='message error'>$error</div>";
+        // }
 
-        if (isset($success)) {
-            echo "<div class='message success'>$success</div>";
-        }
+        // if (isset($success)) {
+        //     echo "<div class='message success'>$success</div>";
+        // }
 
         
 
