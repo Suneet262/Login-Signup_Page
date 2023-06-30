@@ -25,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // User exists and details are correct, login successful
             // You can add further code or redirection if needed
             
-            mysqli_close($conn);
+             mysqli_close($conn);
             
             // echo "Login Successful";
             $success = "Login successful!";
-            header("Location: home.php");
+            header("Location: admin_dashboard.php");
             exit();
             
         } else {

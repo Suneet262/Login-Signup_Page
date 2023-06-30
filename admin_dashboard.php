@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,10 +47,10 @@
     <header>
         <nav>
             <div class="container">
-                <h1>Welcome!! !!</h1>
+                <h1>Welcome to the Admin Portal !!</h1>
                 <ul>
-                    <li><a href="home.php">New Order</a></li>
-                    <li><a href="#">Track Order</a></li>
+                    <li><a href="admin_dashboard.php">New Order</a></li>
+                    <li><a href="#">View Orders</a></li>
                     <li><a href="order_details.html">Search Order</a></li>
                     <!-- <li><a href="#">Track Order</a></li> -->
                     <li><a href="logout.php">Logout</a></li>
@@ -64,7 +63,7 @@
         <!-- <h2>Welcome to the Home Page</h2> -->
         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo lacus eget sapien varius, id volutpat enim lacinia.
              Sed consequat tellus et nibh scelerisque tincidunt.</p> -->
-    <h1 style="text-align: center;">CLOTHING FORM</h1>
+    <h1 style="text-align: center;">Add a New Order</h1>
     <form action="submit_order.php" method="POST">
         <table cellpadding="4" cellspacing="10" width="90%">
             <tr>
