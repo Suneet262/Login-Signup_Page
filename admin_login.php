@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // You can add further code or redirection if needed
             
              mysqli_close($conn);
-            
+            // $_SESSION['loggedin']=true;
             // echo "Login Successful";
             $success = "Login successful!";
             header("Location: admin_dashboard.php");

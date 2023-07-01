@@ -1,3 +1,14 @@
+
+<!-- // if($_SESSION['loggedin']){
+//     //allow
+// }
+// else{
+//     header("Location : login.html");
+// } -->
+
+ 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +74,7 @@
         <!-- <h2>Welcome to the Home Page</h2> -->
         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo lacus eget sapien varius, id volutpat enim lacinia.
              Sed consequat tellus et nibh scelerisque tincidunt.</p> -->
-    <h1 style="text-align: center;">Add a New Order</h1>
+    <h1 style="text-align: center;">PLACE ORDER</h1>
     <form action="submit_order.php" method="POST">
         <table cellpadding="4" cellspacing="10" width="90%">
             <tr>
