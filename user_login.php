@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             // echo "Login Successful";
             $success = "Login successful!";
-            header("Location: home.php");
+            header("Location: user_dashboard.php");
             exit();
             
         } else {

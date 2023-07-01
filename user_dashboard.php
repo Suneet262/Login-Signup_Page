@@ -58,11 +58,11 @@
     <header>
         <nav>
             <div class="container">
-                <h1>Welcome to the Admin Portal !!</h1>
+                <h1>Welcome!!</h1>
                 <ul>
-                    <li><a href="admin_dashboard.php">New Order</a></li>
-                    <li><a href="admin_view_orders.php">View Orders</a></li>
-                    <li><a href="order_details.html">Search Order</a></li>
+                    <li><a href="user_dashboard.php">New Order</a></li>
+                    <li><a href="user_view_orders.php">My Orders</a></li>
+                    <!-- <li><a href="order_details.html">Search Order</a></li> -->
                     <!-- <li><a href="#">Track Order</a></li> -->
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
