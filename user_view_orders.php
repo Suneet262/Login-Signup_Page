@@ -50,7 +50,10 @@ if (mysqli_num_rows($result) > 0) {
 
     // Close the table
     echo '</table>';
-} else {
+} else if(mysqli_num_rows($result)==null){
+    echo "No orders found";
+}
+else {
     // No orders found
     echo 'No orders found.';
 }
