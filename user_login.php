@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_close($conn);
             
             // echo "Login Successful";
-            $success = "Login successful!";
+            $success = "Login successful! $email";
             header("Location: user_dashboard.php");
             exit();
             

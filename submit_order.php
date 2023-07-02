@@ -116,7 +116,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "Error inserting into Orders table: " . $conn->error;
     }
     
-    
+    // if (mysqli_query($conn, $sql)) {
+    //     // Order details inserted successfully
+        
+    //     // Send email confirmation to the user
+    //     $to = "$Customer_Email"; // Replace with the user's email address
+    //     $subject = "Order Confirmation";
+    //     $message = "Dear $Customer_Name,\n\nYour order for $Quantity $Product_type has been successfully registered.\n\nThank you for your order!";
+    //     $headers = "From: .com"; // Replace with your email address
+        
+    //     // Use the mail() function to send the email
+    //     mail($to, $subject, $message, $headers);
+        
+    //     // // Redirect the user to a success page or display a success message
+    //     // header("Location: success.php");
+    //     // exit();
+    // }
 
     // Display success message
     echo "Order submitted successfully!";

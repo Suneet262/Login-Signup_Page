@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Signup successful
                 // You can add further code or redirection if needed
                 $success = "Account successfully created";
-                header("Location:home.php");
+                header("Location:user_dashboard.php");
                 
                 mysqli_close($conn);
             } else {
