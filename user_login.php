@@ -21,13 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
         $result = mysqli_query($conn, $query);
         $get_user_id="SELECT user_id FROM users WHERE email='$email' AND password='$password'";
-
+        $get_user_name = "SELECT name FROM users WHERE email='$email' AND password='$password'";
 
         if (mysqli_num_rows($result) == 1) {
             // User exists and details are correct, login successful
             // You can add further code or redirection if needed
             session_start();
             $_SESSION['get_user_id'] =mysqli_fetch_assoc(mysqli_query($conn,$get_user_id));
+            $_SESSION['get_user_name'] =mysqli_fetch_assoc(mysqli_query($conn,$get_user_name));
             mysqli_close($conn);
             
             // echo "Login Successful";
@@ -38,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             // Invalid login credentials
             header("Location: login.html");
-            // echo "Invalid Login Credentials.";
+             echo "Invalid Login Credentials.";
             $error = "Invalid Login Credentials.";
         }
         

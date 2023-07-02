@@ -89,8 +89,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (mysqli_query($conn, $query)) {
                 // Signup successful
                 // You can add further code or redirection if needed
+                session_start();
                 $get_user_id="SELECT user_id from users WHERE email='$email' AND password='$password'";
+                 $get_user_name = "SELECT name FROM users WHERE email='$email' AND password='$password'";
                 $_SESSION['get_user_id']=mysqli_fetch_assoc(mysqli_query($conn,$get_user_id));
+                 $_SESSION['get_user_name'] =mysqli_fetch_assoc(mysqli_query($conn,$get_user_name));
                 $success = "Account successfully created";
                 header("Location:user_dashboard.php");
                 

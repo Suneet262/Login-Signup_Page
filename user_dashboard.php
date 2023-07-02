@@ -6,7 +6,6 @@
 //     header("Location : login.html");
 // } -->
 
- 
 
 
 <!DOCTYPE html>
@@ -58,7 +57,12 @@
     <header>
         <nav>
             <div class="container">
-                <h1>Welcome!!</h1>
+                <h1>Welcome,   
+                <?php
+                session_start();
+                $get_user_name = implode(" ",$_SESSION['get_user_name']);
+                 echo "$get_user_name" ;?>
+                 !!</h1>
                 <ul>
                     <li><a href="user_dashboard.php">New Order</a></li>
                     <li><a href="user_view_orders.php">My Orders</a></li>
@@ -174,3 +178,4 @@
     </footer>
 </body>
 </html>
+
