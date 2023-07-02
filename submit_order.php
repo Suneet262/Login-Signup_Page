@@ -85,9 +85,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
+    session_start();
+    $user_id = implode(" ",$_SESSION['get_user_id']);
+    // echo "$user_id";
     // Insert into the Customers table
      // Insert into the Customers table
-     $customerQuery = "INSERT INTO customers (Customer_Name, Customer_Email, Delivery_Address) VALUES ('$Customer_Name', '$Customer_Email', '$Delivery_Address')";
+     $customerQuery = "INSERT INTO customers (user_id , Customer_Name, Customer_Email, Delivery_Address) VALUES ('$user_id','$Customer_Name', '$Customer_Email', '$Delivery_Address')";
      if (mysqli_query($conn, $customerQuery)) {
          $Customer_id = mysqli_insert_id($conn); // Get the ID of the newly inserted customer
      } else {

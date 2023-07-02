@@ -1,63 +1,4 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="style_home_page.css">
-    <style>
-    h1{
-        color: rgb(74, 113, 113);
-    }
-    body{
-        font-size: larger;
-        color: white;
-    }
-    form{
-        background-color: rgb(33, 128, 130);
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 10px;
-    }
-     /* table{ 
 
-     } */
-    input{
-        width: 100%;
-        padding: 8px;
-        border-radius: 3px;
-        border: 0px solid;
-    }
-    textarea{
-        width: 100%;
-    }
-    button{
-        background-color: rgb(203, 230, 203);
-        border: 0px solid;
-        padding: 8px;
-        font-size: large;
-        border-radius: 5px;
-    }
-    select{
-        padding: 8px;
-        width:100%;
-    }
-</style>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="container">
-                <h1>Welcome to the Admin Portal !!</h1>
-                <ul>
-                    <li><a href="admin_dashboard.php">New Order</a></li>
-                    <li><a href="admin_view_orders.php">View Orders</a></li>
-                    <li><a href="order_details.html">Search Order</a></li>
-                      <li><a href="#">Track Order</a></li>  `
-                     <li><a href="logout.php">Logout</a></li>
-                </ul>
-            </div>
-        </nav>
-</header>  -->
 
 
 <?php
@@ -67,7 +8,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "user_authentication_03";
-
+echo "<link rel='stylesheet' type='text/css' href='fetch_order_details.css'>";
 // Establish the database connection
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -76,8 +17,11 @@ if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+session_start();
+$user_id = implode(" ",$_SESSION['get_user_id']);
 // Construct the SQL query to fetch all orders
-$sql = "SELECT * FROM customers natural join product natural join orders natural join order_items";
+$sql = "SELECT * FROM users natural join customers natural join product natural join orders natural join order_items
+WHERE users.user_id =$user_id ";
 
 // Execute the query
 $result = mysqli_query($connection, $sql);
