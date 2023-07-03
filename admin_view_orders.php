@@ -67,7 +67,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "user_authentication_03";
-
+echo  "<link rel='stylesheet' type='text/css' href='fetch_order_details.css'>";
 // Establish the database connection
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -85,7 +85,7 @@ $result = mysqli_query($connection, $sql);
 // Check if any results were found
 if (mysqli_num_rows($result) > 0) {
     // Create a table to display the orders
-    echo '<table border="1">';
+    echo '<table class="order-table" border="1">';
     echo '<tr><th>Order ID</th><th>Client Name</th><th>Client Email-Id</th><th>Product Type</th><th>Size</th><th>Color</th><th>Quantity</th><th>Order Date/Time</th><th>Delivery Address</th></tr>';
 
     // Fetch each row of the result set

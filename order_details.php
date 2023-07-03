@@ -5,7 +5,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "user_authentication_03";
-
+echo  "<link rel='stylesheet' type='text/css' href='fetch_order_details.css'>";
 // Establish the database connection
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 

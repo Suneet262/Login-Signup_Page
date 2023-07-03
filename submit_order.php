@@ -90,13 +90,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // echo "$user_id";
     // Insert into the Customers table
      // Insert into the Customers table
-     $customerQuery = "INSERT INTO customers (user_id , Customer_Name, Customer_Email, Delivery_Address) VALUES ('$user_id','$Customer_Name', '$Customer_Email', '$Delivery_Address')";
-     if (mysqli_query($conn, $customerQuery)) {
-         $Customer_id = mysqli_insert_id($conn); // Get the ID of the newly inserted customer
-     } else {
-         echo "Error inserting into Customers table: " . mysqli_error($conn);
-     }
+    //  $customerQuery = "INSERT INTO customers (user_id , Customer_Name, Customer_Email, Delivery_Address) VALUES ('$user_id','$Customer_Name', '$Customer_Email', '$Delivery_Address')";
+    //  if (mysqli_query($conn, $customerQuery)) {
+    //      $Customer_id = mysqli_insert_id($conn); // Get the ID of the newly inserted customer
+    //  } else {
+    //      echo "Error inserting into Customers table: " . mysqli_error($conn);
+    //  }
 
+    if(mysqli_num_rows(mysqli_query($conn,"SELECT * FROM customers WHERE Customer_Name = '$Customer_Name' AND Customer_Email = '$Customer_Email'"))==0)
+    {   //New Customer
+        $customerQuery = "INSERT INTO customers (User_id, Customer_Name, Customer_Email, Delivery_Address) 
+            VALUES ('$user_id','$Customer_Name', '$Customer_Email', '$Delivery_Address')";
+        if (mysqli_query($conn, $customerQuery)) {
+            $Customer_id = mysqli_insert_id($conn); // Get the ID of the newly inserted customer
+        }
+        else {
+            echo "Error inserting into Customers table: " . mysqli_error($conn);
+        }
+    }
+    else
+    {   // Old Customer
+        $Customer_id=implode(" ",mysqli_fetch_assoc(mysqli_query($conn,"SELECT Customer_id FROM customers WHERE Customer_Email = '$Customer_Email'")));
+    }
     $sql = "INSERT INTO product ( Product_type) VALUES (  '$Product_type')";
     if ($conn->query($sql) === TRUE) {
         $Product_id = $conn->insert_id; // Get the ID of the newly inserted order

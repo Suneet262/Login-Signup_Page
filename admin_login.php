@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // $_SESSION['loggedin']=true;
             // echo "Login Successful";
             $success = "Login successful!";
-            header("Location: admin_dashboard.php");
+            header("Location: order_details.html");
             exit();
             
         } else {

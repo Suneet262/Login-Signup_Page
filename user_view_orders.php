@@ -29,7 +29,7 @@ $result = mysqli_query($connection, $sql);
 // Check if any results were found
 if (mysqli_num_rows($result) > 0) {
     // Create a table to display the orders
-    echo '<table border="1">';
+    echo '<table class="order-table" border="1">';
     echo '<tr><th>Order ID</th><th>Client Name</th><th>Client Email-Id</th><th>Product Type</th><th>Size</th><th>Color</th><th>Quantity</th><th>Order Date/Time</th><th>Delivery Address</th></tr>';
 
     // Fetch each row of the result set
